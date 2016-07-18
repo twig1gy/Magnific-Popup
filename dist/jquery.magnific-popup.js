@@ -36,7 +36,8 @@ var CLOSE_EVENT = 'Close',
 	EVENT_NS = '.' + NS,
 	READY_CLASS = 'mfp-ready',
 	REMOVING_CLASS = 'mfp-removing',
-	PREVENT_CLOSE_CLASS = 'mfp-prevent-close';
+	PREVENT_CLOSE_CLASS = 'mfp-prevent-close',
+	PRINT_EVENT = 'Print';
 
 
 /**
@@ -398,6 +399,14 @@ MagnificPopup.prototype = {
 		} else {
 			mfp._close();
 		}
+	},
+
+	print: function() {
+		mfp._print();
+	},
+
+	_print: function() {
+		alert('you want to print?');
 	},
 
 	/**
@@ -1130,6 +1139,7 @@ $.magnificPopup.registerModule('image', {
 
 	options: {
 		markup: '<div class="mfp-figure">'+
+					'<button class="mfp-print" onClick="javascript:printDiv(this);"><i class="fa fa-print"></i></button>'+
 					'<div class="mfp-close"></div>'+
 					'<figure>'+
 						'<div class="mfp-img"></div>'+
@@ -1148,6 +1158,7 @@ $.magnificPopup.registerModule('image', {
 	},
 
 	proto: {
+
 		initImage: function() {
 			var imgSt = mfp.st.image,
 				ns = '.image';
